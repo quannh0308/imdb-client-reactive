@@ -54,6 +54,11 @@ public class WriteRequest extends IMDBSingleRequest<WriteResponse>/* implements 
     }
 
     @Override
+    public MethodID getMethodID() {
+        return MethodID.INSERT;
+    }
+
+    @Override
     public String toString() {
         return "WriteRequest{" +
                 "key=" + key +

@@ -27,8 +27,7 @@ public class MockClient implements Client {
         random = new SecureRandom();
         state = ClientState.INITIALIZE;
         clientConfig = ClientConfig.just();
-        engine = Engine.just();
-        Logger.info("Initialize a mock client");
+
     }
 
     public static MockClient just() {
@@ -82,6 +81,10 @@ public class MockClient implements Client {
     @Override
     public Client connect() {
         validateClientState(state, ClientState.CONFIGURED);
+
+        engine = Engine.just();
+        Logger.info("Initialize a mock client");
+
         Logger.info("Client try to connect to server {}", clientConfig.getHosts());
         Logger.info("Client connect to server {} successfully", clientConfig.getHosts());
         engine.connect();

@@ -29,4 +29,9 @@ public class ClusterRequest extends IMDBSingleRequest<ClusterResponse> {
     public Throwable deserializeException() {
         return null;
     }
+
+    @Override
+    public MethodID getMethodID() {
+        return MethodID.CLUSTER_INFO;
+    }
 }

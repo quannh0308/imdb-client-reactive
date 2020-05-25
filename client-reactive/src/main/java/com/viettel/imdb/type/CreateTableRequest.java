@@ -27,7 +27,7 @@ public class CreateTableRequest extends IMDBSingleRequest<CreateTableResponse> {
 
     @Override
     public void serialize(Bytes data) {
-
+        // do nothing here
     }
 
     @Override
@@ -38,5 +38,10 @@ public class CreateTableRequest extends IMDBSingleRequest<CreateTableResponse> {
     @Override
     public Throwable deserializeException() {
         return null;
+    }
+
+    @Override
+    public MethodID getMethodID() {
+        return MethodID.CREATE;
     }
 }

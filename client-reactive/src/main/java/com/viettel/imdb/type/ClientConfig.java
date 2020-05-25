@@ -75,8 +75,12 @@ public class ClientConfig {
 
         // set value here
         hostsStr = getProperty(HOSTS_PROP, HOSTS_DEFAULT);
+
         try {
-            hosts = Arrays.asList(hostsStr.split(","));
+            if(hostsStr.startsWith("[") && hostsStr.endsWith("]"))
+                hosts = Arrays.asList(hostsStr.substring(1, hostsStr.length() - 1).split(","));
+            else
+                hosts = Arrays.asList(hostsStr.split(","));
         } catch (Exception ex) {
             ex.printStackTrace();
             hosts = new ArrayList<>();

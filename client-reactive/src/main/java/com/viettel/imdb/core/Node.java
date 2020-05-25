@@ -12,7 +12,7 @@ public class Node {
         this.host = host;
         connectionPool = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            connectionPool.add(new ReactorConnection()); // todo connectionPool
+            connectionPool.add(new ReactorConnection(host)); // todo connectionPool
         }
     }
 
